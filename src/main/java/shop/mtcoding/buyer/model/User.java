@@ -15,8 +15,8 @@ import lombok.Setter;
     );
  */
 
- @Getter
- @Setter
+@Getter
+@Setter
 public class User {
     private Integer id;
     private String username;

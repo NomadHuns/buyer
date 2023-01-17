@@ -16,9 +16,9 @@ import lombok.Setter;
     );
  */
 
- @Getter
- @Setter
-public class Parchase {
+@Getter
+@Setter
+public class Purchase {
     private Integer id;
     private Integer userId;
     private Integer productId;
