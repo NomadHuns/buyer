@@ -23,6 +23,8 @@ public interface UserRepository { // CRUD
     public int deleteById(int id);
     // public int insert(String username, String password, String email);
 
+    public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
     // public User login(String username, String password);
 
     // public int delete(int id);
