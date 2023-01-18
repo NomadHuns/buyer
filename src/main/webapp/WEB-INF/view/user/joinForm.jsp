@@ -5,9 +5,9 @@
         </div>
         <div>
             <form action="/join" method="post">
-                상품명 <input type="text" name="username" placeholder="username"><br>
-                가격 <input type="password" name="password" placeholder=""><br>
-                재고 <input type="email" name="email" placeholder="ex) user@naver.com"><br>
+                <input type="text" name="username" placeholder="Enter username" required><br>
+                <input type="password" name="password" placeholder="Enter password" required><br>
+                <input type="email" name="email" placeholder="Enter email" required><br>
                 <button type="submit">회원가입</button>
             </form>
         </div>
