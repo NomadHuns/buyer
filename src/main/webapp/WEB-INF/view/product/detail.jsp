@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
 
-        <h1>상품 목록 페이지</h1>
+        <h1>상품 상세 페이지</h1>
         <hr>
         <table border="1">
             <tr>
@@ -11,15 +11,13 @@
                 <th>재고</th>
                 <th>등록일</th>
             </tr>
-            <c:forEach items="${products}" var="product">
-                <tr>
-                    <td>${product.id}</td>
-                    <td><a href="/product/${product.id}">${product.name}</a></td>
-                    <td>${product.price}</td>
-                    <td>${product.qty}</td>
-                    <td>${product.createdAt}</td>
-                </tr>
-            </c:forEach>
+            <tr>
+                <td>${product.id}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.qty}</td>
+                <td>${product.createdAt}</td>
+            </tr>
         </table>
 
         <%@ include file="../layout/footer.jsp" %>
