@@ -19,8 +19,8 @@
                 <td>${product.createdAt}</td>
             </tr>
         </table>
-        <form action="product/${product.id}/purchase" method="post">
-            <input type="number" name="qty" size="3" min="1" max="${product.qty}">
+        <form action="/product/${product.id}/purchase" method="post">
+            <input type="number" name="count" size="3" min="1" max="${product.qty}">
             <button type="submit">구매</button>
         </form>
         <%@ include file="../layout/footer.jsp" %>
