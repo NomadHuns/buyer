@@ -11,13 +11,15 @@
                 <th>재고</th>
                 <th>등록일</th>
             </tr>
+            <c:forEach items="${products}" var="product">
             <tr>
-                <td>1</td>
-                <td><a href="/product/1">바나나</a></td>
-                <td>1000원</td>
-                <td>500개</td>
-                <td>2023-01-18</td>
+                <td>${product.id}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.qty}</td>
+                <td>${product.createdAt}</td>
             </tr>
+            </c:forEach>
         </table>
 
         <%@ include file="../layout/footer.jsp" %>
