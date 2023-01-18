@@ -13,6 +13,6 @@
    </select>
 
    <insert id="insert">
-      INSERT INTO purchase_tb(user_id, product_id, created_at) values(#{userId}, #{productId}, now());   
+      INSERT INTO purchase_tb(user_id, product_id, product_count, created_at) values(#{userId}, #{productId}, #{productCount}, now());   
    </insert>
 </mapper> 

@@ -7,6 +7,7 @@
             <tr>
                 <th>번호</th>
                 <th>구매상품</th>
+                <th>구매개수</th>
                 <th>구매자</th>
                 <th>구매일</th>
             </tr>
@@ -14,6 +15,7 @@
                 <tr>
                     <td>${purchaseDto.id}</td>
                     <td>${purchaseDto.product.name}</td>
+                    <td>${purchaseDto.productCount}</td>
                     <td>${purchaseDto.user.username}</td>
                     <td>${purchaseDto.createdAt}</td> 
                 </tr>

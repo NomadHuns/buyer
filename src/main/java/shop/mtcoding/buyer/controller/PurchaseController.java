@@ -39,7 +39,7 @@ public class PurchaseController {
         int result = productRepository.updateById(id, count);
         if (result == 1) {
             User user = (User) session.getAttribute("principal");
-            purchaseRepository.insert(user.getId(), id);
+            purchaseRepository.insert(user.getId(), id, count);
             return "redirect:/product/{id}";
         } else {
             return "redirect:/product/{id}";
@@ -54,7 +54,7 @@ public class PurchaseController {
         List<PurchaseDto> purchaseDtos = new ArrayList<>();
         for (Purchase purchase : purchaseList) {
             PurchaseDto purchaseDto = new PurchaseDto(purchase.getId(), user,
-                    productRepository.findById(purchase.getProductId()), purchase.getCreatedAt());
+                    productRepository.findById(purchase.getProductId()),purchase.getProductCount(), purchase.getCreatedAt());
             purchaseDtos.add(purchaseDto);
         }
         model.addAttribute("purchaseDtoList", purchaseDtos);

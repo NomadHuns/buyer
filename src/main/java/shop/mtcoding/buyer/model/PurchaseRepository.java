@@ -11,5 +11,5 @@ public interface PurchaseRepository {
 
     public List<Purchase> findByUserId(int userId);
 
-    public int insert(@Param("userId") int userId, @Param("productId") int productId);
+    public int insert(@Param("userId") int userId, @Param("productId") int productId, @Param("productCount") int count);
 }
