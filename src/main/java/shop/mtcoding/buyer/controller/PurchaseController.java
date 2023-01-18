@@ -36,15 +36,18 @@ public class PurchaseController {
 
     @PostMapping("/product/{id}/purchase")
     public String purchase(@PathVariable int id, int count) {
-        int result = productRepository.updateById(id, count);
-        if (result == 1) {
-            User user = (User) session.getAttribute("principal");
-            purchaseRepository.insert(user.getId(), id, count);
-            return "redirect:/product/{id}";
+        if (session.getAttribute("principal") == null) {
+            return "redirect:/loginForm";
         } else {
-            return "redirect:/product/{id}";
+            int result = productRepository.updateById(id, count);
+            if (result == 1) {
+                User user = (User) session.getAttribute("principal");
+                purchaseRepository.insert(user.getId(), id, count);
+                return "redirect:/product/{id}";
+            } else {
+                return "redirect:/product/{id}";
+            }
         }
-
     }
 
     @GetMapping("/purchase")
@@ -54,7 +57,8 @@ public class PurchaseController {
         List<PurchaseDto> purchaseDtos = new ArrayList<>();
         for (Purchase purchase : purchaseList) {
             PurchaseDto purchaseDto = new PurchaseDto(purchase.getId(), user,
-                    productRepository.findById(purchase.getProductId()),purchase.getProductCount(), purchase.getCreatedAt());
+                    productRepository.findById(purchase.getProductId()), purchase.getProductCount(),
+                    purchase.getCreatedAt());
             purchaseDtos.add(purchaseDto);
         }
         model.addAttribute("purchaseDtoList", purchaseDtos);
